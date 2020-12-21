@@ -50,3 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Debug build dir
+debug/
+
+# Release build dir
+release/
+
+# Build dir
+build/
