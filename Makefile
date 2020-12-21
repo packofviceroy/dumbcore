@@ -6,9 +6,9 @@ all:
 	mkdir -p ./build
 	gcc -c ./src/boot.s -o ./build/boot.o -fPIE
 	gcc -c ./src/main.c -o ./build/main.o $(CFLAGS)
-	gcc -T ./src/linker.ld -o ./build/dumbcore $(LDFLAGS) ./build/boot.o ./build/main.o -lgcc
+	gcc -T ./src/linker.ld -o ./build/$(BIN_NAME) $(LDFLAGS) ./build/boot.o ./build/main.o -lgcc
 	cp -r ./src/isodir ./build
-	cp ./build/dumbcore ./build/isodir/boot
+	cp ./build/$(BIN_NAME) ./build/isodir/boot
 	grub-mkrescue -o ./build/dumbcore.iso ./build/isodir
 	rm -f ./build/main.o ./build/boot.o
 
